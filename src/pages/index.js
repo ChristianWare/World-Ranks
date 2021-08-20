@@ -20,13 +20,21 @@ export default function Home({ countries }) {
     e.preventDefault();
 
     setKeyword(e.target.value.toLowerCase());
-  }
+  };
 
   return (
     <Layout>
-      <div className={styles.counts}>Found {countries.length} countries</div>
+      <div className={styles.inputContainer}>
+        <div className={styles.counts}>Found {countries.length} countries</div>
 
-      <SearchInput placeholder='Filter by Name, Reigon, or Subregion' onChange={onInputChange} />
+        <div className={styles.input}>
+          <SearchInput
+            placeholder='Filter by Name, Reigon, or Subregion'
+            onChange={onInputChange}
+          />
+        </div>
+      </div>
+
 
       <CountriesTable countries={filteredCountries} />
     </Layout>
